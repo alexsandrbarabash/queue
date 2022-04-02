@@ -7,7 +7,7 @@
         <NeutralLanguage>uk</NeutralLanguage>
         <Title>Queue</Title>
         <Authors>CFIF</Authors>
-        <PackageVersion>4.0.0</PackageVersion>
+        <PackageVersion>5.0.0</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>queue2</PackageId>
         <Description>it is my second  attempt</Description>

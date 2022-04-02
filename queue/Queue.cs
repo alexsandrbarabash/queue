@@ -6,12 +6,14 @@ public class Queue<T>
     // private int last = 0;
 
     private T[] myArray = new T[0];
+    public int Length = 0;
 
     public void Add(T value)
     {
         var size = myArray.Length + 1;
         Array.Resize<T>(ref myArray, size);
         myArray[size - 1] = value;
+        this.Length = this.Length + 1;
     }
 
     public T GetElement()
@@ -22,12 +24,8 @@ public class Queue<T>
         }
 
         T value = myArray[0];
-        myArray = myArray.Skip(1).ToArray();  
+        myArray = myArray.Skip(1).ToArray();
+        this.Length = this.Length - 1;
         return value;
-    }
-
-    public int Length()
-    {
-        return myArray.Length;
     }
 }
