@@ -4,6 +4,8 @@ public class Queue<T>
 {
     // private int size = 0;
     // private int last = 0;
+    public delegate void HandlerAdd(T value);
+    public event HandlerAdd Added;
 
     private T[] myArray = new T[0];
     public int Length = 0;
@@ -14,6 +16,7 @@ public class Queue<T>
         Array.Resize<T>(ref myArray, size);
         myArray[size - 1] = value;
         this.Length = this.Length + 1;
+        OnAdded(value);
     }
 
     public T GetElement()
@@ -27,5 +30,13 @@ public class Queue<T>
         myArray = myArray.Skip(1).ToArray();
         this.Length = this.Length - 1;
         return value;
+    }
+
+    protected virtual void OnAdded(T value)
+    {
+        if (Added != null)
+        {
+            Added(value);
+        }
     }
 }
